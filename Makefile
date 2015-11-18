@@ -43,6 +43,10 @@ triggerADC: triggerADC.c
 	$(CC) -g -Wall -I.. -o $@  $@.c -L.. -lmcchid  -lm -L/usr/local/lib -lhid -lusb
 
 
+data2ascii: data2ascii.c
+	$(CC) -g -Wall -I.. -o $@  $@.c -L.. 
+
+
 clean:
 	rm -rf *.d *.o *~ *.a *.so $(TARGETS)
 

@@ -4,18 +4,27 @@
 clear
 # set term png
 set term png enhanced font '/usr/share/fonts/liberation/LiberationSans-Regular.ttf' 12
-set output 'dac16Data.png'
+set output 'voltData.png'
 
 #set xlabel 'Time (s)'
 #set xlabel 'Samp'
+set ylabel 'Bar'
 set xlabel 'Time / Sec'
 
-set title 'ADC 16 bit out Data'
+set title 'KISTLER ADC Data'
 
-dfile='rawdata.bin'
-plot dfile binary format='%int16' using ($0/50e3):($1) with lines lt 1  title 'DAC Ch 0'
+dfile='voltdata-36.bin'
+
+plot_dec = 10 
+firstl = 69.5e3
+endl = 71e3
+
+
+plot dfile binary format='%double' every plot_dec::firstl:0:endl using ($0/50e3):($1*-20) with lines lt 1  title 'ADC Ch 0'
 #set term x11
 
-set term qt
+#set term qt
+set term wxt
 replot
 pause -1 "Hit return to continue"
+

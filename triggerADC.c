@@ -144,7 +144,7 @@ int main (int argc, char **argv)
   channel=0;
   //	printf("Enter sampling frequency [Hz]: ");
   //scanf("%lf", &frequency);
-  frequency=50000;
+  frequency=100000;
   usbAInScanStop_USB20X(udev);
   usbAInScanClearFIFO_USB20X(udev);
   // sleep(1);
